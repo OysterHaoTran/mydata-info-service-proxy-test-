@@ -1,4 +1,4 @@
-// const { profileSoap } = require('../config-soap/profile.js');
+const { profileSoap } = require('../config-soap/profile.js');
 // const { chargesSoap } = require('../config-soap/charges.js');
 // const { entitySoap } = require('../config-soap/entity.js');
 const { acgsSoap } = require('../config-soap/acgs.js');
@@ -13,7 +13,7 @@ acgsSoap(services);
 // chargesSoap(services);
 // certSoap(services);
 // entitySoap(services);
-// profileSoap(services);
+profileSoap(services);
 // financialSoap(services);
 // particularSoap(services);
 // businessSoap(services);

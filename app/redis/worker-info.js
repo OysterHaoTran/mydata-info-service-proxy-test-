@@ -6,7 +6,6 @@ const product = require('../../config/product.js');
 const utils = require('../../lib/utils.js');
 
 module.exports = function workerInitialize() {
-
     try {
         const { infoQ } = QueueInit();
         QueueProcessInit(info, infoQ);
@@ -56,8 +55,6 @@ function setProductService(job) {
     }
 
     if (job.data.info.product === product.SERVICE.ACGS.QUERY || job.data.info.product === product.SERVICE.ACGS.INFO) {
-        // const cust_req_date = utils().dateTimeZone(new Date().toISOString());
-        // const dateApplyAcgs = utils().dateTimeZone(new Date('2023-01-01').toISOString());
         const dateApplyAcgs = utils().dateTimeZone(new Date().toISOString());
         job.data.body.dtApplyAcgs = dateApplyAcgs.toISOString();
     }
@@ -67,11 +64,6 @@ function setProductService(job) {
         if (job.data.info.product === product.SERVICE.PARTICULAR.ADDRESS) {
             job.data.body.fromDate = utils().dateTimeZone('1900-01-01').toISOString();
         }
-
-        // if (job.data.info.product === product.SERVICE.PARTICULAR.COSEC)
-        //     job.data.body.designation = 'S';
-
-        // job.data.body.tableId = "ROCINFO";
     }
     // particular
 
@@ -90,8 +82,6 @@ function setProductService(job) {
             case 10:
                 job.data.info.product = product.SERVICE.FINCOMP.FIN10;
                 break;
-            // default:
-            //     msg = 'Internal error';
         }
     }
 
